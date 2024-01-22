@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+
 # Створення графу
 metro_graph = nx.Graph()
 
@@ -70,7 +71,7 @@ green_line = [
     "Palac Sportu",
     "Klovska",
     "Pecherska",
-    "DN",
+    "Ploshcha UA Hero",
     "Vidubichi",
     "Teluchka",
     "Slavytuck",
@@ -143,16 +144,15 @@ nx.draw_networkx_edge_labels(
     font_color="red",
 )
 
-plt.title(
-    "Kyiv Metro Graph with Interchanges, Ground Connections, and Travel Time (in minutes)"
-)
-plt.show()
+if __name__ == "__main__":
+    plt.title(
+        "Kyiv Metro Graph with Interchanges, Ground Connections, and Travel Time (in minutes)"
+    )
+    plt.show()
 
+    stations = metro_graph.number_of_nodes()
+    connections = metro_graph.number_of_edges()
 
-stations = metro_graph.number_of_nodes()
-connections = metro_graph.number_of_edges()
-
-
-with open("kiyv_metro.md", "r+", encoding="utf-8") as fp:
-    fp.writelines(f"Київське метро складається з {stations} станцій\n")
-    fp.writelines(f"Київське метро має {connections} прокладених зєднань\n")
+    with open("kiyv_metro.md", "r+", encoding="utf-8") as fp:
+        fp.writelines(f"Київське метро складається з {stations} станцій\n")
+        fp.writelines(f"Київське метро має {connections} прокладених зєднань\n")
