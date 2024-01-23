@@ -3,6 +3,7 @@ from metro_graph import metro_graph
 from collections import deque
 from BFS import bfs_recursive
 from DFS import dfs_recursive
+from dijkstra import dijkstra
 
 import matplotlib.pyplot as plt
 
@@ -38,13 +39,7 @@ with open("readme.md", "a", encoding="utf-8") as fp:
 
 # Застосування алгоритму Дейкстри
 
-shortest_path_lengths = nx.single_source_dijkstra_path_length(
-    metro_graph, source="Akademmistechko"
-)
-
-
-def print_line(width):
-    print("-" * (width * 2 + 3))
+shortest_path_lengths = dijkstra(metro_graph, "Akademmistechko")
 
 
 with open("readme.md", "a", encoding="utf-8") as fp:
